@@ -204,6 +204,8 @@ func createMutationConfig(ctx context.Context, kubeClient *kubernetes.Clientset,
 		}
 
 		return err
+	} else if err != nil {
+		logger.Infof(ctx, "Failed to create MutatingWebhookConfiguration. Error: %v", err)
 	}
 
 	return nil
